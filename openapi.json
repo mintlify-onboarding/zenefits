@@ -1,0 +1,131 @@
+{
+        "openapi": "3.1.0",
+        "info": {
+            "title": "API Settings",
+            "version": "1.0"
+        },
+        "servers": [
+            {
+                "url": "https://api.zenefits.com"
+            }
+        ],
+        "components": {
+            "securitySchemes": {
+                "sec0": {
+                    "type": "apiKey",
+                    "name": "Authorization",
+                    "in": "header",
+                    "x-bearer-format": "Bearer"
+                }
+            }
+        },
+        "security": [
+            {
+                "sec0": []
+            }
+        ],
+        "paths": {
+            "/platform/applications": {
+                "get": {
+                    "summary": "Applications",
+                    "description": "Returns information about your application(s)",
+                    "operationId": "applications",
+                    "responses": {
+                        "200": {
+                            "description": "200",
+                            "content": {
+                                "application/json": {
+                                    "examples": {
+                                        "Result": {
+                                            "value": "{\n  \"data\": {\n    \"data\": [\n      {\n        \"fields\": {\n          \"zenexpense_days_to_wait_before_termination\": 30,\n          \"zenexpense_policy_types\": [\n            \"single_policy\",\n            \"multi_policy_single_approval\",\n            \"multi_policy_multi_approval\"\n          ]\n        },\n        \"id\": \"3.com.example.forworkapps\",\n        \"object\": \"/platform/applications\",\n        \"url\": \"https://api.zenefits.com/platform/applications/2.demo.demo.demo\"\n      }\n    ],\n    \"next_url\": null,\n    \"object\": \"/meta/list\",\n    \"url\": \"https://api.zenefits.com/platform/applications\"\n  },\n  \"error\": \"null\",\n  \"object\": \"/meta/response\",\n  \"status\": 200\n}"
+                                        }
+                                    },
+                                    "schema": {
+                                        "type": "object",
+                                        "properties": {
+                                            "data": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "data": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "fields": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "zenexpense_days_to_wait_before_termination": {
+                                                                            "type": "integer",
+                                                                            "example": 30,
+                                                                            "default": 0
+                                                                        },
+                                                                        "zenexpense_policy_types": {
+                                                                            "type": "array",
+                                                                            "items": {
+                                                                                "type": "string",
+                                                                                "example": "single_policy"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "id": {
+                                                                    "type": "string",
+                                                                    "example": "3.com.example.forworkapps"
+                                                                },
+                                                                "object": {
+                                                                    "type": "string",
+                                                                    "example": "/platform/applications"
+                                                                },
+                                                                "url": {
+                                                                    "type": "string",
+                                                                    "example": "https://api.zenefits.com/platform/applications/2.demo.demo.demo"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "next_url": {},
+                                                    "object": {
+                                                        "type": "string",
+                                                        "example": "/meta/list"
+                                                    },
+                                                    "url": {
+                                                        "type": "string",
+                                                        "example": "https://api.zenefits.com/platform/applications"
+                                                    }
+                                                }
+                                            },
+                                            "error": {
+                                                "type": "string",
+                                                "example": "null"
+                                            },
+                                            "object": {
+                                                "type": "string",
+                                                "example": "/meta/response"
+                                            },
+                                            "status": {
+                                                "type": "integer",
+                                                "example": 200,
+                                                "default": 0
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "deprecated": false,
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "language": "curl",
+                                "code": "curl https://api.zenefits.com/platform/applications -H \"Authorization: Bearer [[app:key]]\""
+                            }
+                        ],
+                        "samples-languages": [
+                            "curl"
+                        ]
+                    }
+                }
+            }
+        }
+}
